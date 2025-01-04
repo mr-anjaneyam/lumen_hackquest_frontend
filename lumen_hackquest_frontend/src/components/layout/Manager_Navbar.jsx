@@ -2,7 +2,7 @@ import React from "react";
 import "../../assets/styles/Navbar.css";
 import { FaBars } from "react-icons/fa";
 
-const Navbar = ({ onMenuClick }) => {
+const ManagerNavbar = ({ onMenuClick }) => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -11,7 +11,7 @@ const Navbar = ({ onMenuClick }) => {
         <h1>Telecom Inventory</h1>
       </div>
       <div className="navbar-actions">
-        <button className="btn">Manage Users</button>
+        <button className="btn">Notifications</button>
         <button className="btn">Profile</button>
         <button className="btn">Logout</button>
       </div>
@@ -19,4 +19,4 @@ const Navbar = ({ onMenuClick }) => {
   );
 };
 
-export default Navbar;
+export default ManagerNavbar;

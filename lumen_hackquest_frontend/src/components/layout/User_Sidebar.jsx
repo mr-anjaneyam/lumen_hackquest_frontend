@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/styles/Sidebar.css";
 
-const Sidebar = forwardRef(({ isOpen }, ref) => {
+const UserSidebar = forwardRef(({ isOpen }, ref) => {
   return (
     <div
       ref={ref}
@@ -19,22 +19,22 @@ const Sidebar = forwardRef(({ isOpen }, ref) => {
         </li>
         <li>
           <Link to="/products" className="sidebar-link">
-            <span>Products</span>
+            <span>Add or Update Products</span>
           </Link>
         </li>
         <li>
           <Link to="/suppliers" className="sidebar-link">
-            <span>Suppliers</span>
+            <span>Import/Export Data</span>
           </Link>
         </li>
         <li>
           <Link to="/alerts" className="sidebar-link">
-            <span>Alerts</span>
+            <span>Manage Profile</span>
           </Link>
         </li>
         <li>
           <Link to="/reports" className="sidebar-link">
-            <span>Reports</span>
+            <span>Update Password</span>
           </Link>
         </li>
       </ul>
@@ -42,4 +42,4 @@ const Sidebar = forwardRef(({ isOpen }, ref) => {
   );
 });
 
-export default Sidebar;
+export default UserSidebar;

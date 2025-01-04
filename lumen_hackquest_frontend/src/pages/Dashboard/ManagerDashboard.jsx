@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import Navbar from "../../components/layout/Navbar";
-import Sidebar from "../../components/layout/Sidebar";
+import ManagerNavbar from "../../components/layout/Manager_Navbar";
+import ManagerSidebar from "../../components/layout/Manager_Sidebar";
 import "../../assets/styles/Dashboard.css";
 
-const AdminDashboard = () => {
+const ManagerDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
 
@@ -29,16 +29,16 @@ const AdminDashboard = () => {
   return (
     <div className="dashboard-container">
       {/* Sidebar with ref to detect clicks outside */}
-      <Sidebar ref={sidebarRef} isOpen={isSidebarOpen} />
+      <ManagerSidebar ref={sidebarRef} isOpen={isSidebarOpen} />
 
       {/* Main Content */}
       <div className={`main-content ${isSidebarOpen ? "sidebar-open" : ""}`}>
         {/* Navbar with onClick prop for sidebar toggle */}
-        <Navbar onMenuClick={toggleSidebar} />
+        <ManagerNavbar onMenuClick={toggleSidebar} />
 
         {/* Dashboard Header */}
         <div className="dashboard-header">
-          <h1>Welcome, Admin</h1>
+          <h1>Welcome, Manager</h1>
           <p>Here's an overview of the status and recent activities.</p>
         </div>
 
@@ -107,4 +107,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default ManagerDashboard;
