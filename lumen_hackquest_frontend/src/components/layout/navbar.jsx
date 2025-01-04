@@ -1,13 +1,13 @@
 import React from "react";
 import "../../assets/styles/Navbar.css";
+import { FaBars } from "react-icons/fa";
 
 const Navbar = ({ onMenuClick }) => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <button className="hamburger" onClick={onMenuClick}>
-          ☰
-        </button>
+        {}
+        <FaBars className="hamburger-icon" onClick={onMenuClick} />
         <h1>Telecom Inventory</h1>
       </div>
       <div className="navbar-actions">

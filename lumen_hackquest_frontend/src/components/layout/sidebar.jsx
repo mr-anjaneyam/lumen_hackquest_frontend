@@ -1,42 +1,45 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/styles/Sidebar.css";
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar = forwardRef(({ isOpen }, ref) => {
   return (
-    <aside className={`sidebar ${isOpen ? "open" : ""}`}>
+    <div
+      ref={ref}
+      className={`sidebar ${isOpen ? "open" : "collapsed"}`}
+    >
       <div className="sidebar-header">
-        <h2>Admin Panel</h2>
+        <h2>Telecom Inventory</h2>
       </div>
       <ul className="sidebar-menu">
         <li>
-          <Link to="/dashboard" className="sidebar-link">
-            Dashboard
+          <Link to="/" className="sidebar-link">
+            <span>Dashboard</span>
           </Link>
         </li>
         <li>
           <Link to="/products" className="sidebar-link">
-            Manage Products
+            <span>Products</span>
           </Link>
         </li>
         <li>
           <Link to="/suppliers" className="sidebar-link">
-            Manage Suppliers
+            <span>Suppliers</span>
           </Link>
         </li>
         <li>
           <Link to="/alerts" className="sidebar-link">
-            Alerts
+            <span>Alerts</span>
           </Link>
         </li>
         <li>
           <Link to="/reports" className="sidebar-link">
-            Reports
+            <span>Reports</span>
           </Link>
         </li>
       </ul>
-    </aside>
+    </div>
   );
-};
+});
 
 export default Sidebar;

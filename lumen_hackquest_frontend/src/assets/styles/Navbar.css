@@ -5,17 +5,29 @@
   padding: 1rem 2rem;
   background-color: #007bff;
   color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 20; /* Ensure navbar stays above other elements */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
-.navbar-logo h1 {
+h1{
   font-size: 1.5rem;
   margin: 0;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-icon {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: white;
+}
+
+.hamburger-icon:hover {
+  color: #0056b3;
 }
 
 .navbar-actions {

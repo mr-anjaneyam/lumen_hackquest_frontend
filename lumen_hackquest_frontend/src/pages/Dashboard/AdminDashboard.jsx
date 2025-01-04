@@ -1,30 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/layout/Navbar";
 import Sidebar from "../../components/layout/Sidebar";
 import "../../assets/styles/AdminDashboard.css";
 
 const AdminDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarRef = useRef(null);
 
-  // Toggle sidebar open/close state
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  // Detect click outside of the sidebar to collapse it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsSidebarOpen(false); // Collapse sidebar when clicking outside
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="admin-dashboard">
-      {/* Sidebar */}
-      <Sidebar isOpen={isSidebarOpen} />
+    <div className="dashboard-container">
+      {/* Sidebar with ref to detect clicks outside */}
+      <Sidebar ref={sidebarRef} isOpen={isSidebarOpen} />
 
       {/* Main Content */}
       <div className={`main-content ${isSidebarOpen ? "sidebar-open" : ""}`}>
-        {/* Navbar */}
+        {/* Navbar with onClick prop for sidebar toggle */}
         <Navbar onMenuClick={toggleSidebar} />
 
         {/* Dashboard Header */}
         <div className="dashboard-header">
           <h1>Welcome, Admin</h1>
-          <p>Here's an overview of the system status and recent activities.</p>
+          <p>Here's an overview of the status and recent activities.</p>
         </div>
 
         {/* Widgets Section */}
