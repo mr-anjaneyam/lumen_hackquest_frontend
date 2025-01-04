@@ -1,0 +1,90 @@
+/* General page styling */
+.product-info-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Product List Styling */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Product Card Styling */
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Product Details */
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    padding: 10px 15px;
+    margin: 0;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #666;
+    padding: 0 15px;
+    margin: 10px 0;
+}
+
+.product-category,
+.product-details,
+.product-stock,
+.product-supplier,
+.product-order {
+    font-size: 14px;
+    color: #555;
+    padding: 5px 15px;
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* Links */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-card {
+        margin: 0 auto;
+    }
+}
