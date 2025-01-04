@@ -5,7 +5,7 @@
     width: 100%;
     background-color: #242424;
     overflow: hidden;
-    justify-content: center; /* Center the content horizontally */
+    justify-content: flex-start; /* Ensure content starts from left */
     position: relative;
   }
   
@@ -29,63 +29,31 @@
     width: 250px; /* Expanded width */
   }
   
-  .sidebar-header {
-    padding: 1rem;
-    background-color: #007bff;
-    text-align: center;
-  }
-  
-  .sidebar-header h2 {
-    margin: 0;
-    font-size: 1.2rem;
-    opacity: 0; /* Hidden in collapsed state */
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .sidebar.open .sidebar-header h2 {
-    opacity: 1; /* Show text when expanded */
-  }
-  
-  .sidebar-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-top: 1rem;
-  }
-  
-  .sidebar-link {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .sidebar-link:hover {
-    background-color: #495057;
-    color: #007bff;
-  }
-  
-  .sidebar-link span {
-    display: none; /* Hidden when collapsed */
-  }
-  
-  .sidebar.open .sidebar-link span {
-    display: inline; /* Show text when expanded */
-  }
-  
   /* Main content area */
   .main-content {
     flex: 1;
     padding: 20px;
-    margin-top: 20px;
     transition: margin-left 0.3s ease;
-    width: 100%;
+    width: calc(100% - 60px); /* Make it take full width, adjusted for collapsed sidebar */
     box-sizing: border-box;
-    position: relative; /* Ensure content stays above any background layers */
-    z-index: 1; /* Ensure it's above the sidebar */
+    position: relative;
+    z-index: 1;
+    overflow-y: auto; /* Enable scrolling */
+  }
+  
+  .main-content.sidebar-open {
+    width: calc(100% - 250px); /* Adjust width when sidebar is open */
+    margin-left: 250px; /* Shift content when sidebar is open */
+    transition: width 0.3s ease-in-out, margin-left 0.3s ease-in-out; /* Smooth transition */
+  }
+  
+  /* Center content inside the main area */
+  .main-content-wrapper {
+    width: 100%;
     max-width: 1200px; /* Limit the width of content */
+    margin: 0 auto; /* Center the content */
+    padding-bottom: 20px;
+    min-height: 100%; /* Ensure it fills the entire vertical space */
   }
   
   .dashboard-header {
@@ -137,7 +105,7 @@
   
   .dashboard-section h2 {
     margin-bottom: 15px;
-    color: #333;
+    color: #edecec;
   }
   
   .dashboard-table {
@@ -173,5 +141,4 @@
     font-weight: bold;
     color: #333;
   }
-  
   
