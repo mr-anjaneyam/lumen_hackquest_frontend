@@ -1,23 +1,30 @@
-import React from "react";
-import Navbar from "../components/layout/Navbar";
-import Sidebar from "../components/layout/Sidebar";
-import "../assets/styles/AdminDashboard.css";
+import React, { useState } from "react";
+import Navbar from "../../components/layout/Navbar";
+import Sidebar from "../../components/layout/Sidebar";
+import "../../assets/styles/AdminDashboard.css";
 
 const AdminDashboard = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Toggle sidebar open/close state
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className="admin-dashboard">
       {/* Sidebar */}
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} />
 
       {/* Main Content */}
-      <div className="main-content">
+      <div className={`main-content ${isSidebarOpen ? "sidebar-open" : ""}`}>
         {/* Navbar */}
-        <Navbar />
+        <Navbar onMenuClick={toggleSidebar} />
 
         {/* Dashboard Header */}
         <div className="dashboard-header">
           <h1>Welcome, Admin</h1>
-          <p>Here’s an overview of the system status and recent activities.</p>
+          <p>Here's an overview of the system status and recent activities.</p>
         </div>
 
         {/* Widgets Section */}

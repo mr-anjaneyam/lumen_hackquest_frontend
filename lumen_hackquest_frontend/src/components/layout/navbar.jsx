@@ -1,10 +1,13 @@
 import React from "react";
-import "../assets/styles/Navbar.css";
+import "../../assets/styles/Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ onMenuClick }) => {
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
+      <div className="navbar-left">
+        <button className="hamburger" onClick={onMenuClick}>
+          ☰
+        </button>
         <h1>Telecom Inventory</h1>
       </div>
       <div className="navbar-actions">

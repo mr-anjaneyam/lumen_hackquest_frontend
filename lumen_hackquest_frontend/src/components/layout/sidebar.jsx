@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../assets/styles/Sidebar.css";
+import "../../assets/styles/Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen }) => {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="sidebar-header">
         <h2>Admin Panel</h2>
       </div>
