@@ -5,7 +5,7 @@
     width: 100%;
     background-color: #242424;
     overflow: hidden;
-    justify-content: flex-start; /* Ensure content starts from left */
+    justify-content: center; /* Ensure content starts from left */
     position: relative;
   }
   
@@ -42,7 +42,7 @@
   }
   
   .main-content.sidebar-open {
-    width: calc(100% - 250px); /* Adjust width when sidebar is open */
+    /* width: calc(100% - 250px); */
     margin-left: 250px; /* Shift content when sidebar is open */
     transition: width 0.3s ease-in-out, margin-left 0.3s ease-in-out; /* Smooth transition */
   }

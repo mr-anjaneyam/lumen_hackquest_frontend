@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from '../../assets/styles/Login.module.css';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -6,70 +7,76 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle login logic here
         console.log('Login Username:', username);
         console.log('Login Password:', password);
     };
 
     return (
-        <div style={styles.container}>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit} style={styles.form}>
-                <div style={styles.inputGroup}>
-                    <label>Username:</label>
+        <div className={styles['login-container']}>
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
+                <div className={styles['login-form-group']}>
+                    <label htmlFor="username">Username:</label>
                     <input
                         type="text"
+                        id="username"
+                        name="username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        required
-                        style={styles.input}
                     />
                 </div>
-                <div style={styles.inputGroup}>
-                    <label>Password:</label>
+                <div className={styles['login-form-group']}>
+                    <label htmlFor="password">Password:</label>
                     <input
                         type="password"
+                        id="password"
+                        name="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        required
-                        style={styles.input}
                     />
                 </div>
-                <button type="submit" style={styles.button}>Login</button>
+                <div className={styles['login-radio-input']}>
+                    <input
+                        type="radio"
+                        id="user-type"
+                        name="LoginType"
+                        value="User"
+                    />
+                    <label htmlFor="user-type">User</label>
+
+                    <input
+                        type="radio"
+                        id="staff-type"
+                        name="LoginType"
+                        value="Staff"
+                    />
+                    <label htmlFor="developer-type">Staff</label>
+
+                    <input
+                        type="radio"
+                        id="manager-type"
+                        name="LoginType"
+                        value="Manager"
+                    />
+                    
+                    <label htmlFor="developer-type">Manager</label>
+
+                    <input
+                        type="radio"
+                        id="administrator-type"
+                        name="LoginType"
+                        value="Administrator"
+                    />
+                    <label htmlFor="administrator-type">Administrator</label>
+                </div>
+                <div className={styles['login-form-group']}>
+                    <button type="submit" className={styles['login-button']}>
+                        Login
+                    </button>
+                </div>
             </form>
         </div>
     );
-};
-
-const styles = {
-    container: {
-        width: '300px',
-        margin: '0 auto',
-        padding: '20px',
-        border: '1px solid #ccc',
-        borderRadius: '5px',
-        boxShadow: '2px 2px 12px #aaa',
-    },
-    form: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    inputGroup: {
-        marginBottom: '15px',
-    },
-    input: {
-        padding: '10px',
-        borderRadius: '4px',
-        border: '1px solid #ccc',
-    },
-    button: {
-        padding: '10px',
-        borderRadius: '4px',
-        border: 'none',
-        backgroundColor: '#28a745',
-        color: 'white',
-        cursor: 'pointer',
-    },
 };
 
 export default Login;
